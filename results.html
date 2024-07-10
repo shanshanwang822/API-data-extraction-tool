@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Job ID</th>
+                <th>Document</th>
+                <th>Borough</th>
+                <th>House Number</th>
+                <th>Street Name</th>
+                <th>Block</th>
+                <th>Lot</th>
+                <th>BIN</th>
+                <th>Job Type</th>
+                <th>Job Status</th>
+                <th>Job Status Description</th>
+                <th>Latest Action Date</th>
+                <th>Building Type</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr>
+                <td>{{ result.get('job__', 'N/A') }}</td>
+                <td>{{ result.get('doc__', 'N/A') }}</td>
+                <td>{{ result.get('borough', 'N/A') }}</td>
+                <td>{{ result.get('house__', 'N/A') }}</td>
+                <td>{{ result.get('street_name', 'N/A') }}</td>
+                <td>{{ result.get('block', 'N/A') }}</td>
+                <td>{{ result.get('lot', 'N/A') }}</td>
+                <td>{{ result.get('bin__', 'N/A') }}</td>
+                <td>{{ result.get('job_type', 'N/A') }}</td>
+                <td>{{ result.get('job_status', 'N/A') }}</td>
+                <td>{{ result.get('job_status_descrp', 'N/A') }}</td>
+                <td>{{ result.get('latest_action_date', 'N/A') }}</td>
+                <td>{{ result.get('building_type', 'N/A') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">New Search</a>
+</body>
+</html>
